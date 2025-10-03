@@ -1,7 +1,7 @@
 // ### Eventos ###
 
 // 1. Evita el comportamiento por defecto al hacer click. Por ejemplo, si hago click sobre un enlace, este no me llevará a otra página.
-const links = document.querySelectorAll("a"); //Busca todos los enlaces y los guarda en "links"
+const links = document.querySelectorAll("a"); 
 
 for (let link of links) { 
     link.addEventListener("click", (evento) => { 
