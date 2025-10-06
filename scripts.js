@@ -12,13 +12,13 @@ for (let link of links) {
 // 2. Al hacer click sobre un elemento van a ocurrir varias cosas. Todo depende del tipo de elemento:
 
 //     2.1 Imágenes: Cambia la imagen por uno de los `gif` que tienes en la carpeta **assets** con el nombre **magic-***.
-const imagenes = document.querySelectorAll("img");
+// const imagenes = document.querySelectorAll("img");
 
-for (let imagen of imagenes) {
-    imagen.addEventListener("click", (evento) => { 
-        evento.target.src = "./assets/magic-1.gif";
-    });
-}
+// for (let imagen of imagenes) {
+//     imagen.addEventListener("click", (evento) => { 
+//         evento.target.src = "./assets/magic-1.gif";
+//     });
+// }
 
 //     2.2 Párrafos: Cambia el color del texto y el de fondo por uno cualquiera.
 
@@ -111,16 +111,15 @@ for (let section of sections) {
 
 // 4. Crea una función de nombre `getRandom` que acepte un array con valores y devuelva uno de ellos de manera aleatoria.
 
-//     ```javascript
-//     const colors = ['red', 'blue', 'green']
+const colors = ['red', 'blue', 'green']
 
-//     const getRandom = (array) => {
-//         /* código misterioso */
-//     }
+let getRandom = (colors) => {
+const indexRandom = Math.floor(Math.random()*colors.length);
+return colors[indexRandom]
+}
 
-//     console.log(getRandom(colors))
-//     // imprime 'red', 'blue' o 'green'
-//     ```
+console.log(getRandom(colors));
+
 // 5. Utiliza la función creada `getRandom` para utilizar colores aleatorios de una paleta que hayas escogido de [coolors.co](https://coolors.co/palettes/trending) en los apartados anteriores.
 
 // 6. Utiliza la función creada `getRandom` para utilizar _gifs_ aleatorios  en los apartados anteriores.
