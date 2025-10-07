@@ -1,4 +1,14 @@
 // ### Eventos ###
+// Función getRandom
+
+let getRandom = (array) => {
+    const randomNumber = Math.floor(Math.random() * array.length);
+    return array[randomNumber];
+}
+
+const gifs = ["assets/abracadabra.gif", "assets/magic-1.gif", "assets/magic-2.gif", "assets/magic-3.gif", "assets/magic-4.gif", "assets/magic-5.gif", "assets/magic-6.gif"];
+
+const paletaColores = ["#393E41", "#D3D0CB", "#E7E5DF", "#44BBA4", "#E7BB41"];
 
 // 1. Evita el comportamiento por defecto al hacer click. Por ejemplo, si hago click sobre un enlace, este no me llevará a otra página.
 const links = document.querySelectorAll("a"); 
@@ -12,22 +22,24 @@ for (let link of links) {
 // 2. Al hacer click sobre un elemento van a ocurrir varias cosas. Todo depende del tipo de elemento:
 
 //     2.1 Imágenes: Cambia la imagen por uno de los `gif` que tienes en la carpeta **assets** con el nombre **magic-***.
-// const imagenes = document.querySelectorAll("img");
 
-// for (let imagen of imagenes) {
-//     imagen.addEventListener("click", (evento) => { 
-//         evento.target.src = "./assets/magic-1.gif";
-//     });
-// }
+const imagenes = document.querySelectorAll("img");
+
+for (let imagen of imagenes) {
+    imagen.addEventListener("click", (evento) => { 
+        evento.target.src = getRandom(gifs);
+    });
+}
 
 //     2.2 Párrafos: Cambia el color del texto y el de fondo por uno cualquiera.
+
 
 const parrafos = document.querySelectorAll("p");
 
 for (let parrafo of parrafos) {
     parrafo.addEventListener("click", () => { 
-        parrafo.style.color = "#78207dff";
-        parrafo.style.backgroundColor = "#0add1fff";
+        parrafo.style.color = getRandom(paletaColores);
+        parrafo.style.backgroundColor = getRandom(paletaColores);
         }
     );
 }
@@ -36,14 +48,14 @@ for (let parrafo of parrafos) {
 const articles = document.querySelectorAll("article");
 for (let article of articles) {
     article.addEventListener("click", () => {
-        article.style.backgroundColor = "#2f1ec4ff";
+        article.style.backgroundColor = getRandom(paletaColores);
     })
 }
 
 const sections = document.querySelectorAll("section");
 for (let section of sections) {
     section.addEventListener("click", () => {
-        section.style.backgroundColor = "#baca10ff";
+        section.style.backgroundColor = getRandom(paletaColores);
     })
 }
 
@@ -71,8 +83,8 @@ for (let parrafo of parrafos) {
     const fondoOriginal = parrafo.style.backgroundColor;
     
     parrafo.addEventListener("mouseover", () => { 
-        parrafo.style.color = "#287d20ff";
-        parrafo.style.backgroundColor = "#dd0ad3ff";
+        parrafo.style.color = getRandom(paletaColores);
+        parrafo.style.backgroundColor = getRandom(paletaColores);
     });
 
     parrafo.addEventListener("mouseout", () => { 
@@ -86,7 +98,7 @@ for (let article of articles) {
     const articleOriginal = article.style.color;
     
     article.addEventListener("mouseover", () => { 
-        article.style.color = "#d28425ff";
+        article.style.color = getRandom(paletaColores);
     });
 
     article.addEventListener("mouseout", () => { 
@@ -98,7 +110,7 @@ for (let section of sections) {
     const sectionOriginal = section.style.color;
     
     section.addEventListener("mouseover", () => { 
-        section.style.color = "#3d370cff";
+        section.style.color = getRandom(paletaColores);
     });
 
     section.addEventListener("mouseout", () => { 
@@ -111,15 +123,19 @@ for (let section of sections) {
 
 // 4. Crea una función de nombre `getRandom` que acepte un array con valores y devuelva uno de ellos de manera aleatoria.
 
-const colors = ['red', 'blue', 'green']
+const colors = ['red', 'blue', 'green'];
 
-let getRandom = (colors) => {
-const indexRandom = Math.floor(Math.random()*colors.length);
-return colors[indexRandom]
-}
+// let getRandom = (array) => {
+//     const randomNumber = Math.floor(Math.random() * array.length);
+//     return array[randomNumber];
+// }
 
 console.log(getRandom(colors));
 
 // 5. Utiliza la función creada `getRandom` para utilizar colores aleatorios de una paleta que hayas escogido de [coolors.co](https://coolors.co/palettes/trending) en los apartados anteriores.
 
+console.log(getRandom(paletaColores));
+
 // 6. Utiliza la función creada `getRandom` para utilizar _gifs_ aleatorios  en los apartados anteriores.
+
+console.log(getRandom(gifs));
